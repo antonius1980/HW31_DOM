@@ -1,0 +1,106 @@
+@use "include" as *;
+
+html {
+	font-size: $font-size-html;
+}
+
+body {
+	font-family: $font-family-global;
+	font-style: normal;
+	font-size: $font-size-global;
+	line-height: $line-height-global;
+	font-weight: 300;
+	color: var(--text-color-primary);
+	//background: var(--background-color-global) var(--background-image-global-big) no-repeat 50% 0% / contain;
+	background-color: var(--background-color-global);
+	//transition: color 1s ease-in-out, background 1s ease-in-out;
+}
+
+.container {
+	width: $container-width;
+	max-width: calc($container-width-max + $container-padding * 2);
+	margin: 0 auto;
+	padding-left: $container-padding;
+	padding-right: $container-padding;
+}
+
+a {
+	color: var(--links-color-primary);
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+	&:focus {
+		outline: 0px solid var(--accent-color-primary);
+		&:not(.nav-menu__link):not(.btn) {
+			outline-width: 2px;
+			outline-offset: 3px;
+			border-radius: 10px;
+		}
+	}
+}
+
+p {
+	letter-spacing: normal;
+}
+
+.btn {
+	@include font-basic(2rem, 1em, 700, var(--buttons-color-primary));
+	letter-spacing: normal;
+	text-transform: capitalize;
+	text-wrap: nowrap;
+	max-width: 95%;
+	display: inline-block;
+	&:hover {
+		color: var(--buttons-color-secondary);
+		text-decoration: none;
+	}
+
+	&:focus {
+		color: var(--buttons-color-primary);
+	}
+}
+
+.heading {
+	font-family: $font-family-headings;
+	font-weight: 400;
+	color: var(--font-color-heading);
+	letter-spacing: normal;
+	& em {
+		font-style: italic;
+		color: var(--accent-color-primary);
+	}
+	& a {
+		font-style: italic;
+		color: var(--accent-color-primary);
+		&:hover {
+			color: var(--buttons-color-secondary);
+			text-decoration: none;
+		}
+	}
+	&-1 {
+		font-size: 4.4rem;
+		line-height: 1.18182em;
+		margin-bottom: 20px;
+	}
+	&-2 {
+		font-size: 4rem;
+		line-height: 1.2em;
+		margin-bottom: 25px;
+	}
+	&-3 {
+		font-size: 2.4rem;
+		line-height: 2em;
+		margin-bottom: 6px;
+	}
+}
+
+.main-content {
+	&__section {
+		
+	}
+}
+
+.visually-hidden {
+	@include v-hid;
+}
