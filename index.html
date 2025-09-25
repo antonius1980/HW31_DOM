@@ -6,7 +6,7 @@
 	<title>Homework for Lesson 31. Document Object Model (DOM).</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	<link rel="icon" type="image/svg+xml" href="./assets/img/svg/favicon.svg">
 	<link rel="alternate icon" href="./favicon.ico">
 	<link rel="stylesheet" href="./css/main.css">
@@ -32,56 +32,74 @@
 		</nav>
 	</header>
 	<main class="main main-content">
-		<article class="article content-article" id="dom">
-			<h2 class="heading-2">
+		<article class="article main-content__article" id="dom">
+			<h2 class="heading heading-2">
 				Document Object Model (DOM)
 			</h2>
-			<section class="content-section" id="task1">
-				<h3 class="heading-3">
-					Створити сторінку, що показує нумерований список пісень:
+			<section class="content-section main-content__section" id="task1">
+				<h3 class="heading heading-3">
+					Завдання №1 &mdash; Створити сторінку, що показує нумерований список пісень:
 				</h3>
+
+			</section>
+
+			<section class="content-section main-content__section" id="task2">
+				<h3 class="heading heading-3">
+					Завдання №2 &mdash; Створити HTML-сторінку з кнопкою "Відкрити" і модальним вікном. 
+				</h3>	
+				<p>На модальном вікні повинен бути текст і кнопка "Закрити". Спочатку модальне вікно не відображається. При кліку на кнопку "Відкрити" з'являється модальне вікно, на кнопку "Закрити" — зникає.</p>	
 				
+				<button id="btnModalOpen" type="button" class="btn btn--centered">Відкрити модальне вікно</button>
 			</section>
 
-			<section class="content-section" id="task2">
-				<h3 class="heading-3">
-
+			<section class="content-section main-content__section" id="task3">
+				<h3 class="heading heading-3">
+					Завдання №2 &mdash; Cвітлофор
 				</h3>			
-			</section>
+				<p>Створити HTML-сторінку зі світлофором і кнопкою, яка перемикає світлофор на наступний колір.</p>
 
-			<section class="content-section" id="task3">
-				<h3 class="heading-3">
+				<ul class="lights">
+					<li class="lights__list-item active"></li>
+					<li class="lights__list-item"></li>
+					<li class="lights__list-item"></li>
+				</ul>
 
-				</h3>			
+				<button id="btnlightsToggle" type="button" class="btn btn--centered">Перемкнути</button>
+
 			</section>
 		</article>		
 
 
-		<article class="article content-article" id="dom-events">
-			<h2 class="heading-2">
+		<article class="article main-content__article" id="dom-events">
+			<h2 class="heading heading-2">
 
 			</h2>
-			<section class="content-section" id="task4">
-				<h3 class="heading-3">
+			<section class="content-section main-content__section" id="task4">
+				<h3 class="heading heading-3">
 					
 				</h3>
 
 			</section>
 
-			<section class="content-section" id="task5">
-				<h3 class="heading-3">
+			<section class="content-section main-content__section" id="task5">
+				<h3 class="heading heading-3">
 
 				</h3>			
 			</section>
 
-			<section class="content-section" id="task6">
-				<h3 class="heading-3">
+			<section class="content-section main-content__section" id="task6">
+				<h3 class="heading heading-3">
 
 				</h3>			
 			</section>
 		</article>	
 	</main>
 	</div>
+		<dialog id="info">
+			<h2 class="heading heading-1">Some modal heading</h2>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus dignissimos facilis voluptas ratione, sunt assumenda sit hic odio explicabo deserunt vel deleniti officia autem, illum ut cupiditate nulla dolore minus ipsa mollitia illo placeat? Doloremque praesentium vitae veniam cupiditate laborum libero alias optio voluptatem ipsa saepe modi nesciunt sunt consequuntur quod ab, enim repellat magnam quibusdam perferendis atque qui ullam. Libero repudiandae amet neque provident obcaecati nulla voluptate ex, maiores vero harum necessitatibus fugiat rem blanditiis laboriosam enim porro dignissimos sequi eum, id quibusdam odio quae. Corrupti neque quidem optio? Recusandae reprehenderit impedit exercitationem, accusantium tenetur, natus harum quas voluptate quidem, provident earum! Facilis totam culpa ex non neque architecto, cumque odio iusto harum vero laudantium tenetur voluptates, perspiciatis ab error blanditiis mollitia perferendis natus, sed minima necessitatibus qui optio recusandae.</p>
+			<button id="btnModalClose" type="button" class="btn btn--centered">Close</button>
+		</dialog>
 	<script src="./js/script.js"></script>	
 </body>
 </html>

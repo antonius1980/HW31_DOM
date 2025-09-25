@@ -10,9 +10,8 @@ body {
 	font-size: $font-size-global;
 	line-height: $line-height-global;
 	font-weight: 300;
-	color: var(--text-color-primary);
-	//background: var(--background-color-global) var(--background-image-global-big) no-repeat 50% 0% / contain;
-	background-color: var(--background-color-global);
+	color: $text-color-primary;
+	background-color: $background-color-global;
 	//transition: color 1s ease-in-out, background 1s ease-in-out;
 }
 
@@ -25,13 +24,13 @@ body {
 }
 
 a {
-	color: var(--links-color-primary);
+	color: $links-color-primary;
 	text-decoration: none;
 	&:hover {
 		text-decoration: underline;
 	}
 	&:focus {
-		outline: 0px solid var(--accent-color-primary);
+		outline: 0px solid $accent-color-primary;
 		&:not(.nav-menu__link):not(.btn) {
 			outline-width: 2px;
 			outline-offset: 3px;
@@ -44,37 +43,150 @@ p {
 	letter-spacing: normal;
 }
 
+ol {
+	list-style: decimal;
+	list-style-position: outside;
+	margin-left: 25px;
+	& li {
+		padding-block: 5px;
+	}
+}
+
+dialog {
+	width: 100%;
+	max-width: 1000px;
+	min-height: 400px;
+	padding: 2%;
+	text-align: center;
+	border-color: $buttons-background-color-secondary;
+	border-width: 1px;
+	border-top-width: 50px;
+	border-radius: 25px;
+	z-index: 100;
+	transition: opacity 0.5s;
+	opacity: 0;
+	&:open {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		opacity: 1;
+	}
+	&::backdrop {
+		background-color: #000000c0;
+	}
+	& p {
+		font-size: 1.8rem;
+		text-align: left;
+	}
+}
+
+.songs-list {
+	font-size: 1.5rem;
+	text-transform: capitalize;
+	font-weight: 400;
+	& li {
+		padding-left:5px;
+	}
+	& cite {
+		font-size: 2.0rem;
+		font-weight: 600;
+
+		&::after {
+			content: "-";
+			display: inline-block;
+			margin-inline: 10px;
+		}
+	}
+	& .author {
+		font-size: 2.2rem;
+		text-transform: uppercase;
+		color: #333;
+	}
+}
+
+.lights {
+	background-color: #333;
+	width: 140px;
+	margin: 100px auto 250px;
+	padding: 20px;
+	@include flex-center(column);
+	border-radius: 45px;
+	position: relative;
+	&::after {
+		content: "";
+		@include ah-c;
+		background-color: #333;
+		height: 200px;
+		bottom:-200px;
+		width: 30px;
+	}
+	&::before {
+		content: "";
+		@include ah-c;
+		background-color: #333;
+		height: 50px;
+		bottom:-200px;
+		width: 50px;
+		z-index: 2;
+	}
+	&__list-item {
+		height: 100px;
+		width: 100px;
+		border-radius: 50%;
+		margin-bottom: 10px;
+		background-color: #ccc;
+		border: 1px solid #555;
+			&:nth-of-type(1) {
+				&.active {
+					background-color:rgb(0, 255, 0);
+				}
+		}
+	}
+}
+
 .btn {
-	@include font-basic(2rem, 1em, 700, var(--buttons-color-primary));
+	@include font-basic(2rem, 1em, 700, $buttons-color-primary);
 	letter-spacing: normal;
 	text-transform: capitalize;
 	text-wrap: nowrap;
 	max-width: 95%;
 	display: inline-block;
+	padding: 15px 30px;
+	border: 1px solid $buttons-border-color-primary;
+	border-radius: 5px;
+	background-color: $buttons-background-color-primary;
+	transition: transform 0.3s;
+	&--centered {
+		display: block;
+		margin: 30px auto;
+	}
 	&:hover {
-		color: var(--buttons-color-secondary);
+		color: $buttons-color-secondary;
+		background-color: $buttons-background-color-secondary;
 		text-decoration: none;
 	}
 
 	&:focus {
-		color: var(--buttons-color-primary);
+		color: #4f0d04;
+		transform: scale(110%) translateY(-5px);
+		
 	}
 }
 
 .heading {
 	font-family: $font-family-headings;
 	font-weight: 400;
-	color: var(--font-color-heading);
+	color: $font-color-heading;
 	letter-spacing: normal;
 	& em {
 		font-style: italic;
-		color: var(--accent-color-primary);
+		color: $accent-color-primary;
 	}
 	& a {
 		font-style: italic;
-		color: var(--accent-color-primary);
+		color: $accent-color-primary;
 		&:hover {
-			color: var(--buttons-color-secondary);
+			color: $buttons-color-secondary;
 			text-decoration: none;
 		}
 	}
@@ -86,26 +198,41 @@ p {
 	&-2 {
 		font-size: 4rem;
 		line-height: 1.2em;
-		margin-bottom: 25px;
+		margin-bottom: 35px;
+		margin-left: 5px;
 	}
 	&-3 {
-		font-size: 2.4rem;
-		line-height: 2em;
-		margin-bottom: 6px;
+		font-size: 2.8rem;
+		line-height: 1.5em;
+		margin-bottom: 25px;
 	}
 }
 
 .top-header {
 	@include flex-ext(space-between, center, row, 25px);
+	padding: 30px 0;
+	background: linear-gradient(90deg, #fffce8 0%,  #f9f1b9 100%) ;
+	border-bottom: 5px solid #f7df1e; 
+	border-left: 2px solid #f7df1e; 
 }
 
 .nav-menu {
 	@include flex-ext(center, center, row, 25px, null);
+	margin-right: 30px;
 }
 
 .main-content {
+	background: #fff;
+	border-right: 1px solid #f7df1e; 
+	&__article {
+		padding: 30px 25px;
+	}
 	&__section {
-		
+		background-color: #fcfcfa;
+		padding: 35px 30px;
+		border: 1px solid #eeeeee;
+		border-radius: 15px;
+		margin-bottom: 50px;
 	}
 }
 
