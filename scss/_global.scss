@@ -95,6 +95,14 @@ p {
 	}
 }
 
+.top-header {
+	@include flex-ext(space-between, center, row, 25px);
+}
+
+.nav-menu {
+	@include flex-ext(center, center, row, 25px, null);
+}
+
 .main-content {
 	&__section {
 		
