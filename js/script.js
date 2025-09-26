@@ -86,13 +86,82 @@ btnModalClose.addEventListener("click", () => {
 /* Task 3 */
 const btnlightsToggle = document.getElementById("btnlightsToggle");
 const lights = document.querySelectorAll(".lights .lights__list-item");
+//console.log(lights);
+
+// function makeNextActive (el) {
+//       el.nextElementSibling.classList.add("active");
+//       el.classList.remove("active");
+//       //console.log(el);
+// }
+
+// function makeFirstActive (el) {
+//       el.nextElementSibling.classList.add("active");
+//       el.classList.remove("active");
+//       console.log(el);
+// }
 
 function changeLights () {
+  for (let light of lights) {
+    if (light.classList.contains("active")) {
+      light.classList.remove("active");
 
+      if (light.nextElementSibling) {
+        light.nextElementSibling.classList.add("active");
+      } else {
+        lights[0].classList.add("active");
+      }
+
+      break;
+    }
+  }
 }
 
-btnlightsToggle.addEventListener("click", () => {
+// function setFuncInterval(int, func) {
+//   const funcInterval = setInterval(()=> func, int);
+//   return funcInterval;
+// }
+let funcInterval;
+function setFuncInterval(int, func) { funcInterval = setInterval(()=> {func();} , int); return funcInterval; }
+
+  //const lightsAutoChange = setInterval(()=> {changeLights();}, 5000);
   
+
+  //const lightsAutoChange = setFuncInterval(2000, changeLights);
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  //lightsAutoChange;
+  setFuncInterval(2000, changeLights);
+  //lightsAutoChange;
+
+
+  btnlightsToggle.addEventListener("click", () => {
+    //clearInterval(lightsAutoChange);
+    clearInterval(funcInterval);
+    changeLights();
+    btnlightsToggle.classList.toggle("cat");
+  });
+
+    btnlightsToggle.addEventListener("mouseover", () => {
+    clearInterval(funcInterval);
+  });
+
+  btnlightsToggle.addEventListener("mouseout", () => {
+    clearInterval(funcInterval);
+    setFuncInterval(2000, changeLights);
+  });
+
+  //   btnlightsToggle.addEventListener("mouseover", () => {
+  //   const lightsAutoChangeFast = setFuncInterval(500, changeLights);
+  //   clearInterval(lightsAutoChangeFast);
+  // });
+
+  document.querySelector(".lights").addEventListener("click", (event) => {
+  if (event.target.tagName === "LI") {
+    event.target.classList.toggle("cat");
+  }
+});
+
 });
 
 
